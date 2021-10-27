@@ -1,1 +1,14 @@
-
+_____________________SET:
+{    
+SET_PAIR:
+            ->  SET er PAIR compare sort er moto kaj kore. 1st valuer upore sort hoy. 1s ar 1st same hole jar 2nd value small take age rakhbe.
+            ->  SET er PAIR multiset er moto kaj kore but 1st or 2nd vluer modde jekono ekta ke unique hote hobe 
+                                       0 1
+                                       0 2
+                                       0 3
+                  but 1st ar 2nd value same hole normal set er moto ekta muche jay;
+                  isert: st.insert({1st,2nd});
+                  erase: st.erase({1st,2nd});
+                  st.begin()->first;
+                  st.begin()->second;         
+}    
