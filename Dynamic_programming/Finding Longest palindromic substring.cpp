@@ -1,5 +1,5 @@
 /*
-    Given a string finding longest palindromic substring (s>=1000)
+    Given a string finding longest palindromic substring (s<=1000)
 
     Solve:
     In this problem we can use dp for finding palindrom.
@@ -14,8 +14,7 @@
     Total complexity 0(n^2+n^2) not 0(n^4)
     because dp calculate only n^2 one time
     after calculation of dp then all call
-    dp is 0(1) for memo_
-    rization.
+    0(1) for memo_rization.
 */
 
 #include <bits/stdc++.h>
