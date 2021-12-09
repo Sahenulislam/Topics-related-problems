@@ -1,33 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll int
-#define fast                          \
-    ios_base::sync_with_stdio(false); \
-    cin.tie(NULL);
-#define INF        9223372036854775806
-#define MINF       -9223372036854775806
-#define eps          1e-8
-#define gcd __gcd
-#define yes "YES"
-#define no "NO"
-#define pb push_back
-#define si size()
-#define in " "
-#define mone "-1"
-#define zero "0"
-#define one "1"
-#define PI acos(-1)
-#define endl "\n"
-const ll mx=10005;
 map<string,vector<string>>v;
 map<string,int>visit;
 ll x=0;
 void dfs(string s)
 {
-    visit[s]=1;
+    visit[s]=1; //starting process
     for(auto i:v[s])
     {
-        if(visit[i]==1)
+        if(visit[i]==1) // cycle find because without finish process excess second time
         {
             x=1;
             return;
@@ -38,7 +20,7 @@ void dfs(string s)
             dfs(i);
         }
     }
-    visit[s]=2;
+    visit[s]=2; //finish process
 
 }
 int main()
@@ -59,12 +41,12 @@ int main()
             v[s1].pb(s2);
             visit[s1]=0;
         }
-        for(auto i:visit)
+        for(auto i:visit)  // for disconnected component
         {
-            if(i.second==0)
+            if(i.second==0) // not visited
             {
                 dfs(i.first);
-                if(x==1)
+                if(x==1) // cycle find
                     break;
             }
         }
