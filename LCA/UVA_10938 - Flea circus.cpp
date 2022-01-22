@@ -58,9 +58,8 @@ ll LCA(ll u,ll v)
     }
     return parent[u];
 }
-ll kthLCA(ll u,ll k)
+ll kthAncestor(ll u,ll k)
 {
-    //cout<<"c "<<u<<endl;
     ll log;
     while(k>0)
     {
@@ -68,7 +67,6 @@ ll kthLCA(ll u,ll k)
         u=st[u][log];
         k-=(1<<log);
     }
-    //cout<<u<<endl;
     return u;
 
 }
@@ -100,11 +98,10 @@ int main()
             ll lca=LCA(u,v);
             ll distance=level[u]+level[v]-(2*level[lca]);
             ll ans;
-            //cout<<level[u]<<" "<<level[v]<<endl;
             if(level[u]>level[v])
-                ans=kthLCA(u,distance/2);
+                ans=kthAncestor(u,distance/2);
             else
-                ans=kthLCA(v,distance/2);
+                ans=kthAncestor(v,distance/2);
             if(distance%2==0)
             {
                 cout<<"The fleas meet at "<<ans<<"."<<endl;
