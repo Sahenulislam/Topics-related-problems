@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long
+#define printv(x) for(ll i=0;i<x.size();i++){if(i+1==x.size())cout<<x[i]<<endl;else cout<<x[i]<<" ";}
+#define printa(x,n) for(ll i=0;i<n;i++){if(i+1==n)cout<<x[i]<<endl;else cout<<x[i]<<" ";}
 #define fast                          \
     ios_base::sync_with_stdio(false); \
     cin.tie(NULL);
@@ -25,18 +27,34 @@ ll lcm(ll a,ll b)
 {
     return (a/(__gcd(a, b)))*b;
 }
-const ll mxn=1e6+10;
+const ll mx=1e6+10;
 
 
 int main()
 {
-    //fast
+    fast
     ll t;
     cin>>t;
     while(t--)
     {
         ll n;
         cin>>n;
+        ll a[n+10];
+        map<ll,ll>mp;
+        for(ll i=0; i<n; i++)
+        {
+            cin>>a[i];
+            mp[a[i]]++;
+        }
+        ll ans=0;
+        for(auto x:mp)
+        {
+            ans+=ans*x.second;
+            ans+=x.second;
+            ans%=mod;
+        }
+        cout<<ans<<nl;
+
     }
     return 0;
 }
