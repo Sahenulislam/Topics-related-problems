@@ -27,23 +27,24 @@ const ll mxn=1e6+10;
 
 int main()
 {
-    //fast
-    ll t;
-    cin>>t;
-    while(t--)
+    fast
+    ll n,m;
+    cin>>n>>m;
+    ll a[n+10];
+    ll b[m+10];
+    for(ll i=0; i<n; i++)
+        cin>>a[i];
+    for(ll i=0; i<m; i++)
+        cin>>b[i];
+    ll gc=0;
+    for(ll i=1; i<n; i++)
     {
-        ll n;
-        cin>>n;
-        ll f=0;
-        for(ll i=2;i*i<=n;i++)
-        {
-            if(n%i==0)
-            {
-                cout<<i<<nl;
-                if(n/i!=i)cout<<n/i<<nl;
-            }
-        }
-
+        gc=gcd(gc,abs(a[0]-a[i]));
     }
+    for(ll i=0; i<m; i++)
+    {
+        cout<<gcd(gc,a[0]+b[i])<<in;
+    }
+
     return 0;
 }
